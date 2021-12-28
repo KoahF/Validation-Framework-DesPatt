@@ -1,3 +1,3 @@
 import { IsBooleanRule } from "./IsBooleanRule";
 
-export const BooleanRule = { IsBooleanRule };
+export const BooleanRules = { IsBooleanRule };
