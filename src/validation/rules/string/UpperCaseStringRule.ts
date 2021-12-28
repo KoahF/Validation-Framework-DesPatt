@@ -1,11 +1,12 @@
-import { Rule } from '../Rule';
+import { Rule } from '../Rule'
 
 export class UpperCaseStringRule extends Rule {
-	constructor () {
-		super();
-	}
+    constructor() {
+        super()
+    }
 
-	validate (value: string) {
-		if (value.toUpperCase() !== value) throw new Error('Not yet in upperCase');
-	}
+    validate(value: string) {
+        if (value.toUpperCase() !== value)
+            throw new Error('Not yet in upperCase')
+    }
 }

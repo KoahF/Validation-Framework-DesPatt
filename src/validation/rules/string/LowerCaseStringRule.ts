@@ -1,11 +1,12 @@
-import { Rule } from '../Rule';
+import { Rule } from '../Rule'
 
 export class LowerCaseStringRule extends Rule {
-	constructor () {
-		super();
-	}
+    constructor() {
+        super()
+    }
 
-	validate (value: string) {
-		if (value.toLowerCase() !== value) throw new Error('Not yet in lowercase');
-	}
+    validate(value: string) {
+        if (value.toLowerCase() !== value)
+            throw new Error('Not yet in lowercase')
+    }
 }

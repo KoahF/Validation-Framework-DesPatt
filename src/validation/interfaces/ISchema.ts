@@ -1,3 +1,3 @@
 export class ISchema {
-	validation (value: any): void {}
+    validation(value: any): void {}
 }
