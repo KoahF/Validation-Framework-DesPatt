@@ -1,6 +1,6 @@
 import { Rule } from '../Rule'
 
-export class IsBooleanRule extends Rule {
+export default class IsBooleanRule extends Rule {
     constructor(message?: string) {
         super()
         this._name = 'boolean'

@@ -1,9 +1,9 @@
 import { BaseSchema } from './BaseSchema'
-import { BooleanRules } from '../rules/boolean'
+import { IsBooleanRule } from '../rules/boolean'
 
-export class BooleanSchema extends BaseSchema {
+export default class BooleanSchema extends BaseSchema {
     isBoolean(message?: string) {
-        this.ruleList.addRule(new BooleanRules.IsBooleanRule(message))
+        this.ruleList.addRule(new IsBooleanRule(message))
         return this
     }
 }

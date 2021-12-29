@@ -1,3 +1,1 @@
-import { IsBooleanRule } from './IsBooleanRule'
-
-export const BooleanRules = { IsBooleanRule }
+export { default as IsBooleanRule } from './IsBooleanRule'

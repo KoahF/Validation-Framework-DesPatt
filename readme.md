@@ -1,10 +1,11 @@
 # Install
+
 ```
-npm i -g ts-node nodemon typescript
+npm i
 ```
 
 # Start
+
 ```
 npm run dev
 ```
-
