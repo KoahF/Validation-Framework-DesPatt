@@ -1,18 +1,18 @@
-import { ISchema } from '../interfaces/ISchema';
-import { RuleList } from '../rules/RuleList';
+import { ISchema } from '../interfaces/ISchema'
+import { RuleList } from '../rules/RuleList'
 
 export class BaseSchema implements ISchema {
-	protected ruleList: RuleList;
-	protected type: string;
+    protected ruleList: RuleList
+    protected type: string
 
-	constructor () {
-		this.ruleList = new RuleList();
-		this.type = 'type?';
-	}
+    constructor() {
+        this.ruleList = new RuleList()
+        this.type = 'type?'
+    }
 
-	validation (value: any): void {
-		for (const rule of this.ruleList.getRules) {
-			rule.validate(value);
-		}
-	}
+    validation(value: any): void {
+        for (const rule of this.ruleList.getRules) {
+            rule.validate(value)
+        }
+    }
 }
