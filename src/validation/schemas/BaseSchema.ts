@@ -1,5 +1,5 @@
-import { ISchema } from '../interfaces/ISchema';
-import { RuleList } from '../rules/RuleList';
+import { ISchema } from '../interfaces/ISchema'
+import { RuleList } from '../rules/RuleList'
 
 export class BaseSchema implements ISchema {
   protected ruleList: RuleList;

@@ -1,5 +1,4 @@
 import { SchemaFactory } from './validation/schemas/SchemaFactory';
-
 (function main() {
   const schema = SchemaFactory.string();
   const numberSchema = SchemaFactory.number();
