@@ -1,6 +1,6 @@
 export abstract class Rule {
-	private _name?: string;
-	private _message?: string;
+  protected _name?: string;
+  protected _message?: string;
 
-	validate (input: any): void {}
+  validate(input: any): void {}
 }
