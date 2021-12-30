@@ -6,7 +6,7 @@ import {
   MoreThanNumberRule,
   NegativeNumberRule,
   PositiveNumberRule,
-} from '../rules/Number';
+} from '../rules/number';
 import { BaseSchema } from './BaseSchema';
 
 export default class NumberSchema extends BaseSchema {
