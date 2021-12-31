@@ -1,16 +1,19 @@
-import { Rule } from '../Rule'
+import { Rule } from '../Rule';
 
-export class MinStringRule extends Rule {
-    private _limit: number
+export default class MinStringRule extends Rule {
+	private _limit: number;
 
-    constructor(limit: number) {
-        super()
-        this._limit = limit
-    }
+	constructor (limit: number, message?: string) {
+		super('string', message || 'this length must be greater than or equal to ' + limit);
+		this._limit = limit;
+	}
 
-    validate(value: string) {
-        if (value.length < this._limit) {
-            throw new Error(`Length more than ${this._limit}`)
-        }
-    }
+	checkIsFail (value: string): boolean {
+		if (typeof value !== 'string') {
+			this._message = 'this type must be string';
+			return true;
+		}
+
+		return value.length < this._limit;
+	}
 }

@@ -1,18 +1,19 @@
-import { Rule } from '../Rule'
+import { Rule } from '../Rule';
 
-export class MatchesStringRule extends Rule {
-    private _regex: RegExp
+export default class MatchesStringRule extends Rule {
+	private _regex: RegExp;
 
-    constructor(limit: RegExp) {
-        super()
-        this._regex = limit
-    }
+	constructor (reg: RegExp, message?: string) {
+		super('string', message || 'this not match ' + reg);
+		this._regex = reg;
+	}
 
-    validate(value: string) {
-        const isValid = this._regex.test(value)
+	checkIsFail (value: string): boolean {
+		if (typeof value !== 'string') {
+			this._message = 'this type must be string';
+			return true;
+		}
 
-        if (!isValid) {
-            throw new Error('Not Match')
-        }
-    }
+		return this._regex.test(value);
+	}
 }

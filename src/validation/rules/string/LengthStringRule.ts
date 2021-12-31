@@ -1,15 +1,19 @@
-import { Rule } from '../Rule'
+import { Rule } from '../Rule';
 
-export class LengthStringRule extends Rule {
-    private _limit: number
+export default class LengthStringRule extends Rule {
+	private _limit: number;
 
-    constructor(limit: number) {
-        super()
-        this._limit = limit
-    }
+	constructor (limit: number, message?: string) {
+		super('string', message || 'this length must be equal ' + limit);
+		this._limit = limit;
+	}
 
-    validate(value: string) {
-        if (value.length !== this._limit)
-            throw new Error('Wrong length = ' + this._limit)
-    }
+	checkIsFail (value: any): boolean {
+		if (typeof value !== 'string') {
+			this._message = 'this type must be string';
+			return true;
+		}
+
+		return value.length !== this._limit;
+	}
 }

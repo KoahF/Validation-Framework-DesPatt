@@ -1,17 +1,7 @@
-import { LengthStringRule } from './LengthStringRule'
-import { LowerCaseStringRule } from './LowerCaseStringRule'
-import { MatchesStringRule } from './MatchStringRule'
-import { MaxStringRule } from './MaxStringRule'
-import { MinStringRule } from './MinStringRule'
-import { TrimStringRule } from './TrimStringRule'
-import { UpperCaseStringRule } from './UpperCaseStringRule'
-
-export const StringRules = {
-    LengthStringRule,
-    LowerCaseStringRule,
-    MatchesStringRule,
-    MaxStringRule,
-    MinStringRule,
-    TrimStringRule,
-    UpperCaseStringRule,
-}
+export { default as LengthStringRule } from './LengthStringRule';
+export { default as LowerCaseStringRule } from './LowerCaseStringRule';
+export { default as MatchesStringRule } from './MatchStringRule';
+export { default as MaxStringRule } from './MaxStringRule';
+export { default as MinStringRule } from './MinStringRule';
+export { default as TrimStringRule } from './TrimStringRule';
+export { default as UpperCaseStringRule } from './UpperCaseStringRule';

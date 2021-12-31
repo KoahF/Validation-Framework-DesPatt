@@ -1,11 +1,16 @@
-import { Rule } from '../Rule'
+import { Rule } from '../Rule';
 
-export class TrimStringRule extends Rule {
-    constructor() {
-        super()
-    }
+export default class TrimStringRule extends Rule {
+	constructor (message?: string) {
+		super('string', message || 'this is not trim');
+	}
 
-    validate(value: string) {
-        if (value.trim() !== value) throw new Error('Not yet in trim')
-    }
+	checkIsFail (value: string): boolean {
+		if (typeof value !== 'string') {
+			this._message = 'this type must be string';
+			return true;
+		}
+
+		return value.trim() !== value;
+	}
 }

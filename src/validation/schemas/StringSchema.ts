@@ -1,39 +1,47 @@
-import { StringRules } from './../rules/string'
-import { BaseSchema } from './BaseSchema'
+import {
+	LengthStringRule,
+	LowerCaseStringRule,
+	MaxStringRule,
+	MinStringRule,
+	TrimStringRule,
+	UpperCaseStringRule,
+	MatchesStringRule,
+} from './../rules/string';
+import { BaseSchema } from './BaseSchema';
 
-export class StringSchema extends BaseSchema {
-    length(limit: number) {
-        this.ruleList.addRule(new StringRules.LengthStringRule(limit))
-        return this
-    }
+export default class StringSchema extends BaseSchema {
+	length (limit: number, message?: string) {
+		this.ruleList.addRule(new LengthStringRule(limit, message));
+		return this;
+	}
 
-    lowerCase() {
-        this.ruleList.addRule(new StringRules.LowerCaseStringRule())
-        return this
-    }
+	lowerCase (message?: string) {
+		this.ruleList.addRule(new LowerCaseStringRule(message));
+		return this;
+	}
 
-    max(limit: number) {
-        this.ruleList.addRule(new StringRules.MaxStringRule(limit))
-        return this
-    }
+	max (limit: number, message?: string) {
+		this.ruleList.addRule(new MaxStringRule(limit, message));
+		return this;
+	}
 
-    min(limit: number) {
-        this.ruleList.addRule(new StringRules.MinStringRule(limit))
-        return this
-    }
+	min (limit: number, message?: string) {
+		this.ruleList.addRule(new MinStringRule(limit, message));
+		return this;
+	}
 
-    trim() {
-        this.ruleList.addRule(new StringRules.TrimStringRule())
-        return this
-    }
+	trim (message?: string) {
+		this.ruleList.addRule(new TrimStringRule(message));
+		return this;
+	}
 
-    upperCase() {
-        this.ruleList.addRule(new StringRules.UpperCaseStringRule())
-        return this
-    }
+	upperCase (message?: string) {
+		this.ruleList.addRule(new UpperCaseStringRule(message));
+		return this;
+	}
 
-    matches(value: RegExp) {
-        this.ruleList.addRule(new StringRules.MatchesStringRule(value))
-        return this
-    }
+	matches (value: RegExp, message?: string) {
+		this.ruleList.addRule(new MatchesStringRule(value, message));
+		return this;
+	}
 }

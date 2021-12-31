@@ -1,12 +1,16 @@
-import { Rule } from '../Rule'
+import { Rule } from '../Rule';
 
-export class UpperCaseStringRule extends Rule {
-    constructor() {
-        super()
-    }
+export default class UpperCaseStringRule extends Rule {
+	constructor (message?: string) {
+		super('string', message || 'this is not upper case');
+	}
 
-    validate(value: string) {
-        if (value.toUpperCase() !== value)
-            throw new Error('Not yet in upperCase')
-    }
+	checkIsFail (value: string): boolean {
+		if (typeof value !== 'string') {
+			this._message = 'this type must be string';
+			return true;
+		}
+
+		return value.toUpperCase() !== value;
+	}
 }
