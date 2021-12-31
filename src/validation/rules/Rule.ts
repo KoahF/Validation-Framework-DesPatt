@@ -1,6 +1,19 @@
 export abstract class Rule {
-    protected _name?: string
+    private _name?: string
     protected _message?: string
+    private _key?: string
 
-    validate(input: any): void {}
+    constructor(name: string, message?: string, key?: string) {
+        this._name = name
+        this._message = message
+        this._key = key || 'this'
+    }
+
+    abstract checkIsFail(value: any): boolean
+
+    validate(input: any): void {
+        if (this.checkIsFail(input)) {
+            throw new Error(`${this._key} ${this._message}`)
+        }
+    }
 }
