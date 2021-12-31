@@ -10,38 +10,38 @@ import {
 import { BaseSchema } from './BaseSchema';
 
 export default class StringSchema extends BaseSchema {
-	length (limit: number) {
-		this.ruleList.addRule(new LengthStringRule(limit));
+	length (limit: number, message?: string) {
+		this.ruleList.addRule(new LengthStringRule(limit, message));
 		return this;
 	}
 
-	lowerCase () {
-		this.ruleList.addRule(new LowerCaseStringRule());
+	lowerCase (message?: string) {
+		this.ruleList.addRule(new LowerCaseStringRule(message));
 		return this;
 	}
 
-	max (limit: number) {
-		this.ruleList.addRule(new MaxStringRule(limit));
+	max (limit: number, message?: string) {
+		this.ruleList.addRule(new MaxStringRule(limit, message));
 		return this;
 	}
 
-	min (limit: number) {
-		this.ruleList.addRule(new MinStringRule(limit));
+	min (limit: number, message?: string) {
+		this.ruleList.addRule(new MinStringRule(limit, message));
 		return this;
 	}
 
-	trim () {
-		this.ruleList.addRule(new TrimStringRule());
+	trim (message?: string) {
+		this.ruleList.addRule(new TrimStringRule(message));
 		return this;
 	}
 
-	upperCase () {
-		this.ruleList.addRule(new UpperCaseStringRule());
+	upperCase (message?: string) {
+		this.ruleList.addRule(new UpperCaseStringRule(message));
 		return this;
 	}
 
-	matches (value: RegExp) {
-		this.ruleList.addRule(new MatchesStringRule(value));
+	matches (value: RegExp, message?: string) {
+		this.ruleList.addRule(new MatchesStringRule(value, message));
 		return this;
 	}
 }

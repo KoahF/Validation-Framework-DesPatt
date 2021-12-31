@@ -4,11 +4,16 @@ export default class MatchesStringRule extends Rule {
 	private _regex: RegExp;
 
 	constructor (reg: RegExp, message?: string) {
-		super(message || 'this not match ' + reg);
+		super('string', message || 'this not match ' + reg);
 		this._regex = reg;
 	}
 
 	checkIsFail (value: string): boolean {
+		if (typeof value !== 'string') {
+			this._message = 'this type must be string';
+			return true;
+		}
+
 		return this._regex.test(value);
 	}
 }
