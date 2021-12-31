@@ -10,8 +10,8 @@ export class BaseSchema implements ISchema {
         this.type = 'type?'
     }
 
-    validate(value: any): any {
-        this.ruleList.checkAllRule(value)
+    validate(value: any, key?: string): any {
+        this.ruleList.checkAllRule(value, key)
 
         return value
     }

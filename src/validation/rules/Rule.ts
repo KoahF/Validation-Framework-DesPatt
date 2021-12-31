@@ -1,21 +1,17 @@
 export abstract class Rule {
     private _name?: string
     protected _message?: string
-    private _key?: string
 
-    constructor(name: string, message?: string, key?: string) {
+    constructor(name: string, message?: string) {
         this._name = name
         this._message = message
-        this._key = key
     }
 
     abstract checkIsFail(value: any): boolean
 
-    validate(input: any): void {
+    validate(input: any, key?: string): void {
         if (this.checkIsFail(input)) {
-            throw new Error(
-                `${this._key ? this._key + ': ' : ''}${this._message}`
-            )
+            throw new Error(`${key ? key + ': ' : ''}${this._message}`)
         }
     }
 }
