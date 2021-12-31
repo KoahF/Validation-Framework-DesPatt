@@ -1,16 +1,14 @@
-import { Rule } from '../Rule'
+import { Rule } from '../Rule';
 
-export class MaxStringRule extends Rule {
-    private _limit: number
+export default class MaxStringRule extends Rule {
+	private _limit: number;
 
-    constructor(limit: number) {
-        super()
-        this._limit = limit
-    }
+	constructor (limit: number, message?: string) {
+		super(message || 'this length must be less than or equal to ' + limit);
+		this._limit = limit;
+	}
 
-    validate(value: string) {
-        if (value.length > this._limit) {
-            throw new Error(`Length less than ${this._limit}`)
-        }
-    }
+	checkIsFail (value: string): boolean {
+		return value.length > this._limit;
+	}
 }

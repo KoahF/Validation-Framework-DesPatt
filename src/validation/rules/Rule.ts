@@ -1,21 +1,21 @@
-export abstract class Rule {
-    private _name?: string
-    protected _message?: string
-    private _key?: string
+import { ISchema } from '../interfaces/ISchema';
 
-    constructor(name: string, message?: string, key?: string) {
-        this._name = name
-        this._message = message
-        this._key = key
-    }
+export abstract class Rule implements ISchema {
+	private _name?: string;
+	private _key?: string;
+	protected _message?: string;
 
-    abstract checkIsFail(value: any): boolean
+	constructor (name: string, message?: string, key?: string) {
+		this._name = name;
+		this._message = message;
+		this._key = key;
+	}
 
-    validate(input: any): void {
-        if (this.checkIsFail(input)) {
-            throw new Error(
-                `${this._key ? this._key + ': ' : ''}${this._message}`
-            )
-        }
-    }
+	abstract checkIsFail (value: any): boolean;
+
+	validate (input: any): void {
+		if (this.checkIsFail(input)) {
+			throw new Error(`${this._key ? this._key + ': ' : ''}${this._message}`);
+		}
+	}
 }

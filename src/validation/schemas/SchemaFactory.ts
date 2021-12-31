@@ -1,22 +1,22 @@
-import NumberSchema from './NumberSchema'
-import { StringSchema } from './StringSchema'
-import ArraySchema from './ArraySchema'
-import BooleanSchema from './BooleanSchema'
+import NumberSchema from './NumberSchema';
+import StringSchema from './StringSchema';
+import ArraySchema from './ArraySchema';
+import BooleanSchema from './BooleanSchema';
 
 export class SchemaFactory {
-    static string() {
-        return new StringSchema()
-    }
+	static string () {
+		return new StringSchema();
+	}
 
-    static boolean() {
-        return new BooleanSchema()
-    }
+	static boolean () {
+		return new BooleanSchema();
+	}
 
-    static number() {
-        return new NumberSchema()
-    }
+	static number () {
+		return new NumberSchema();
+	}
 
-    static array() {
-        return new ArraySchema()
-    }
+	static array () {
+		return new ArraySchema();
+	}
 }
