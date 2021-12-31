@@ -14,4 +14,10 @@ export class RuleList {
     addRule(rule: Rule): void {
         this.rules.push(rule)
     }
+
+    checkAllRule(value: any): void {
+        for (const rule of this.rules) {
+            rule.validate(value)
+        }
+    }
 }

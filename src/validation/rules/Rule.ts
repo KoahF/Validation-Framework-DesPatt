@@ -6,14 +6,16 @@ export abstract class Rule {
     constructor(name: string, message?: string, key?: string) {
         this._name = name
         this._message = message
-        this._key = key || 'this'
+        this._key = key
     }
 
     abstract checkIsFail(value: any): boolean
 
     validate(input: any): void {
         if (this.checkIsFail(input)) {
-            throw new Error(`${this._key} ${this._message}`)
+            throw new Error(
+                `${this._key ? this._key + ': ' : ''}${this._message}`
+            )
         }
     }
 }
