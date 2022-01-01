@@ -15,7 +15,7 @@ export class RuleList {
         this.rules.push(rule)
     }
 
-    checkAllRule(value: any): void {
+    checkAllRules(value: any): void {
         for (const rule of this.rules) {
             rule.validate(value)
         }
