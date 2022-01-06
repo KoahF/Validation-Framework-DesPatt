@@ -5,6 +5,7 @@ import StringSchema from './StringSchema'
 import ShapeSchema from './ShapeSchema'
 
 import { ShapeObjectType } from './ShapeSchema'
+import NumberSchema from './NumberSchema'
 
 export class SchemaFactory {
     static array() {
@@ -15,15 +16,15 @@ export class SchemaFactory {
         return new BooleanSchema()
     }
 
-    // static number () {
-    // 	return new NumberSchema();
-    // }
-
     static string() {
         return new StringSchema()
     }
 
     static shape(obj?: ShapeObjectType) {
         return new ShapeSchema(obj)
+    }
+
+    static number() {
+        return new NumberSchema()
     }
 }

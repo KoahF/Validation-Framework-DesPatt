@@ -1,32 +1,31 @@
-import { Rule } from '../Rule';
+import { Rule } from '../Rule'
 
 export default class MinNumberRule extends Rule {
-  private min: number;
+    checkIsFail(value: any): boolean {
+        const numb = Number(value)
 
-  constructor(value: any) {
-    const numb = Number(value);
+        if (isNaN(numb)) {
+            throw new Error('Min rule of Number Schema has to be a number')
+        }
 
-    if (isNaN(numb)) {
-      throw new Error('Min rule of Number Schema has to be a number');
+        if (value < this.min) {
+            return true
+        }
+
+        return false
     }
+    private min: number
 
-    // super('MinNumberRule', 'MinNumberRule violated');
-    super();
-    this._name = 'MinNumberRule';
-    this._message = 'MinNumberRule violated';
+    constructor(value: any, message?: string) {
+        const numb = Number(value)
 
-    this.min = value;
-  }
+        if (isNaN(numb)) {
+            throw new Error('Min rule of Number Schema has to be a number')
+        }
 
-  validate(value: any): void {
-    const numb = Number(value);
+        // super('MinNumberRule', 'MinNumberRule violated');
+        super('min', message || `must be greater than or equal to ${numb}`)
 
-    if (isNaN(numb)) {
-      throw new Error('Min rule of Number Schema has to be a number');
+        this.min = numb
     }
-
-    if (value < this.min) {
-      throw new Error(this._message);
-    }
-  }
 }

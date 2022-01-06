@@ -1,36 +1,28 @@
-import { Rule } from '../Rule';
+import { Rule } from '../Rule'
 
 export default class IntegerNumberRule extends Rule {
-  /**
-   *
-   */
-  constructor() {
-    super();
+    checkIsFail(value: any): boolean {
+        const numb = Number(value)
 
-    this._name = 'IntegerNumberRule';
-    this._message = 'IntegerNumberRule violated.';
-  }
+        if (isNaN(numb)) {
+            throw new Error('Integer rule of Number Schema has to be a number')
+        }
 
-  validate(value: any): void {
-    const numb = Number(value);
-
-    if (isNaN(numb)) {
-      throw new Error('Integer rule of Number Schema has to be a number');
+        return !this.isInt(value)
+    }
+    /**
+     *
+     */
+    constructor(message?: string) {
+        super('integer', message || 'must be a boolean')
     }
 
-    return this.isInt(value);
-  }
+    isInt(value: any): boolean {
+        const check =
+            !isNaN(value) &&
+            parseInt(Number(value).toString()) == value &&
+            !isNaN(parseInt(value, 10))
 
-  isInt(value: any): any {
-    const check =
-      !isNaN(value) &&
-      parseInt(Number(value).toString()) == value &&
-      !isNaN(parseInt(value, 10));
-
-    if (!check) {
-      throw new Error(this._message);
+        return check
     }
-
-    return value;
-  }
 }

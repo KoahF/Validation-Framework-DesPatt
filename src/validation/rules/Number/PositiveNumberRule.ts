@@ -1,25 +1,23 @@
-import { Rule } from '../Rule';
+import { Rule } from '../Rule'
 
 export default class PositiveNumberRule extends Rule {
-  /**
-   *
-   */
-  constructor() {
-    super();
+    checkIsFail(value: any): boolean {
+        const numb = Number(value)
 
-    this._name = 'PositiveNumberRule';
-    this._message = 'PositiveNumberRule violated';
-  }
+        if (isNaN(numb)) {
+            throw new Error('Positive rule of Number Schema has to be a number')
+        }
 
-  validate(value: any): void {
-    const numb = Number(value);
+        if (value <= 0) {
+            return true
+        }
 
-    if (isNaN(numb)) {
-      throw new Error('Positive rule of Number Schema has to be a number');
+        return false
     }
-
-    if (value <= 0) {
-      throw new Error(this._message);
+    /**
+     *
+     */
+    constructor(message?: string) {
+        super('positive', 'must be positive  number')
     }
-  }
 }
