@@ -1,33 +1,32 @@
-import { Rule } from '../Rule';
+import { Rule } from '../Rule'
 
 export default class MaxNumberRule extends Rule {
-  max: number;
-  /**
-   *
-   */
-  constructor(value: any) {
-    const numb = Number(value);
+    checkIsFail(value: any): boolean {
+        const numb = Number(value)
 
-    if (isNaN(numb)) {
-      throw new Error('Max rule of Number Schema has to be a number');
+        if (isNaN(numb)) {
+            throw new Error('Max rule of Number Schema has to be a number')
+        }
+
+        if (value > this.max) {
+            return true
+        }
+
+        return false
     }
+    max: number
+    /**
+     *
+     */
+    constructor(value: any, message?: string) {
+        const numb = Number(value)
 
-    super();
+        if (isNaN(numb)) {
+            throw new Error('Max rule of Number Schema has to be a number')
+        }
 
-    this._name = 'MaxNumberRule';
-    this._message = 'MaxNumberRule violated';
-    this.max = numb;
-  }
+        super('max', message || `must be smaller than or equal to ${numb}`)
 
-  validate(value: any): void {
-    const numb = Number(value);
-
-    if (isNaN(numb)) {
-      throw new Error('Max rule of Number Schema has to be a number');
+        this.max = numb
     }
-
-    if (value > this.max) {
-      throw new Error(this._message);
-    }
-  }
 }

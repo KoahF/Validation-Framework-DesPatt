@@ -6,12 +6,15 @@ import { SchemaFactory } from './validation/schemas/SchemaFactory'
         a: SchemaFactory.array().length(1),
     })
     // const booleanSchema = SchemaFactory.boolean();
-    // const numberSchema = SchemaFactory.number();
+    const numberSchema = SchemaFactory.number()
     // const arraySchema = SchemaFactory.array();
     try {
-        // numberSchema.min(1).max(5).integer();
-        // const numberResult = numberSchema.validate('4');
-        // console.log('🚀 ~ file: index.ts ~ line 12 ~ main ~ numberResult', numberResult);
+        numberSchema.min(1).max(5).integer()
+        const numberResult = numberSchema.validate('4')
+        console.log(
+            '🚀 ~ file: index.ts ~ line 12 ~ main ~ numberResult',
+            numberResult
+        )
         // const array = [1, 2, 3, 4]
         // arraySchema.length('Ba').validate('Array')
         // schema.length(2).validate(12);
@@ -28,7 +31,7 @@ import { SchemaFactory } from './validation/schemas/SchemaFactory'
         // schema.trim().validate('x   x   ');
         // schema.upperCase().validate('ABC');
         // shapeSchema.validate({ b: 'true', a: [1, 2, 3] })
-        shapeSchema.validate({ b: 'asf', a: [1, 2, 3, 4] })
+        // shapeSchema.validate({ b: 'asf', a: [1, 2, 3, 4] })
         console.log('ok')
     } catch (e) {
         const error = e as Error
