@@ -14,6 +14,6 @@ export default class MatchesStringRule extends Rule {
 			return true;
 		}
 
-		return this._regex.test(value);
+		return !this._regex.test(value);
 	}
 }
