@@ -7,17 +7,16 @@ export default class LengthArrayRule extends Rule {
         if (isNaN(limit)) {
             throw new Error('length() function input has to be a number')
         }
-        super('length()')
+        super('length()', message || ` length must be smaller than ${limit}`)
         this._limit = limit
     }
 
     checkIsFail(input: any): boolean {
         if (!Array.isArray(input)) {
             this._message = ` has to be of type Array`
-            return true
+            throw new Error('length() function input has to be a number')
         }
         if (input.length > this._limit) {
-            this._message = ` length must be smaller than ${this._limit}`
             return true
         }
 
