@@ -1,6 +1,6 @@
 export abstract class Rule {
-    private _name?: string
-    protected _message?: string
+    private _name: string
+    protected _message: string
 
     constructor(name: string, message: string) {
         this._name = name

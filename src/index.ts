@@ -1,5 +1,4 @@
 import { NewRule } from './new-rule'
-import { BaseSchema } from './validation/schemas/BaseSchema'
 import { SchemaFactory } from './validation/schemas/SchemaFactory'
 ;(function main() {
     const schema = SchemaFactory.string()
