@@ -8,18 +8,13 @@ import { SchemaFactory } from './validation/schemas/SchemaFactory'
     })
     // const booleanSchema = SchemaFactory.boolean();
     const numberSchema = SchemaFactory.number()
-    SchemaFactory.addMethod(numberSchema, new NewRule('Bang3', 'phai bang 3'))
+    // SchemaFactory.addMethod(numberSchema, new NewRule('Bang3', 'phai bang 3'))
     // const arraySchema = SchemaFactory.array();
     try {
-        const numberResult = numberSchema.validate('3')
-        console.log(
-            '🚀 ~ file: index.ts ~ line 12 ~ main ~ numberResult',
-            numberResult
-        )
         // const array = [1, 2, 3, 4]
         // arraySchema.length('Ba').validate('Array')
-        // schema.length(2).validate(12);
-        // schema.length(2).validate('123');
+        // schema.length(2).validate('12')
+        schema.length(2).validate('123')
         // schema.lowerCase().validate('XX');
         // schema.lowerCase().validate('aa');
         // schema.matches(/2/).validate('2');
