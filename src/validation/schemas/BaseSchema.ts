@@ -1,7 +1,8 @@
 import { ISchema } from '../interfaces/ISchema'
+import { Rule } from '../rules/Rule'
 import { RuleList } from '../rules/RuleList'
 
-export class BaseSchema implements ISchema {
+export abstract class BaseSchema implements ISchema {
     protected ruleList: RuleList
     protected type: string
     protected _label: any
@@ -25,5 +26,9 @@ export class BaseSchema implements ISchema {
     label(value: any): BaseSchema {
         this._label = value
         return this
+    }
+
+    static addRule(schema: BaseSchema, rule: Rule) {
+        schema.ruleList.addRule(rule)
     }
 }

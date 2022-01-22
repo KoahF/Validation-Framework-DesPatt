@@ -1,3 +1,3 @@
-export class ISchema {
-    validate(value: any): void {}
+export interface ISchema {
+    validate(value: any): void
 }

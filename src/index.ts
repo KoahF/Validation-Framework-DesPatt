@@ -1,3 +1,5 @@
+import { NewRule } from './new-rule'
+import { BaseSchema } from './validation/schemas/BaseSchema'
 import { SchemaFactory } from './validation/schemas/SchemaFactory'
 ;(function main() {
     const schema = SchemaFactory.string()
@@ -7,10 +9,10 @@ import { SchemaFactory } from './validation/schemas/SchemaFactory'
     })
     // const booleanSchema = SchemaFactory.boolean();
     const numberSchema = SchemaFactory.number()
+    SchemaFactory.addMethod(numberSchema, new NewRule('Bang3', 'phai bang 3'))
     // const arraySchema = SchemaFactory.array();
     try {
-        numberSchema.min(1).max(5).integer()
-        const numberResult = numberSchema.validate('4')
+        const numberResult = numberSchema.validate('3')
         console.log(
             '🚀 ~ file: index.ts ~ line 12 ~ main ~ numberResult',
             numberResult
